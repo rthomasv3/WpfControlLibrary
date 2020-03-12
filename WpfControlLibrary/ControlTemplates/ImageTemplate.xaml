@@ -1,0 +1,85 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:cvm="clr-namespace:WpfControlLibrary.ControlViewModels">
+   <DataTemplate DataType="{x:Type cvm:ImageViewModel}">
+      <ScrollViewer Padding="5"
+                    HorizontalScrollBarVisibility="Auto"
+                    VerticalScrollBarVisibility="Auto">
+         <Grid>
+            <Grid.RowDefinitions>
+               <RowDefinition Height="Auto" />
+               <RowDefinition Height="Auto" />
+               <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0"
+                       Style="{StaticResource _titleTextBlock}"
+                       Text="{Binding Title}" />
+
+            <TextBlock Grid.Row="1"
+                       Style="{StaticResource _subtitleTextBlock}"
+                       Text="{Binding Subtitle}" />
+
+            <StackPanel Grid.Row="2">
+               <StackPanel.Resources>
+                  <Style TargetType="{x:Type TextBlock}">
+                     <Setter Property="Margin" Value="0,15,0,2" />
+                  </Style>
+               </StackPanel.Resources>
+
+               <TextBlock Text="Image using resource URI." />
+               <Image Width="48"
+                      Height="48"
+                      HorizontalAlignment="Left"
+                      Source="/WPFControlLibrary;component/Resources/code-compendium-icon-48.png" />
+
+               <TextBlock Text="Image using relative resource URI." />
+               <Image Width="48"
+                      Height="48"
+                      HorizontalAlignment="Left"
+                      Source="/Resources/code-compendium-icon-48.png" />
+
+               <TextBlock Text="Image using URI from binding." />
+               <Image Width="48"
+                      Height="48"
+                      HorizontalAlignment="Left"
+                      Source="{Binding ImageUri}" />
+
+               <TextBlock Text="Image using static resource." />
+               <Image Width="48"
+                      Height="48"
+                      HorizontalAlignment="Left"
+                      Source="{StaticResource _logoSmallImage}" />
+
+               <TextBlock Text="Image with uniform stretching." />
+               <Image Width="256"
+                      Height="128"
+                      HorizontalAlignment="Left"
+                      Source="{StaticResource _logoSmallImage}"
+                      Stretch="Uniform" />
+
+               <TextBlock Text="Image with uniform to fill stretching." />
+               <Image Width="256"
+                      Height="128"
+                      HorizontalAlignment="Left"
+                      Source="{StaticResource _logoSmallImage}"
+                      Stretch="UniformToFill" />
+
+               <TextBlock Text="Image with fill stretching." />
+               <Image Width="256"
+                      Height="128"
+                      HorizontalAlignment="Left"
+                      Source="{StaticResource _logoSmallImage}"
+                      Stretch="Fill" />
+
+               <TextBlock Text="Image with no stretching." />
+               <Image Width="256"
+                      Height="128"
+                      HorizontalAlignment="Left"
+                      Source="{StaticResource _logoSmallImage}"
+                      Stretch="None" />
+            </StackPanel>
+         </Grid>
+      </ScrollViewer>
+   </DataTemplate>
+</ResourceDictionary>

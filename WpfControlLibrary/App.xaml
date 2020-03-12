@@ -1,0 +1,30 @@
+﻿<Application x:Class="WpfControlLibrary.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml">
+   <Application.Resources>
+      <ResourceDictionary>
+         <ResourceDictionary.MergedDictionaries>
+            <ResourceDictionary Source="Resources/BaseResources.xaml" />
+            <ResourceDictionary Source="ControlTemplates/BorderTemplate.xaml" />
+            <ResourceDictionary Source="ControlTemplates/ButtonTemplate.xaml" />
+            <ResourceDictionary Source="ControlTemplates/CheckBoxTemplate.xaml" />
+            <ResourceDictionary Source="ControlTemplates/ComboBoxTemplate.xaml" />
+            <ResourceDictionary Source="ControlTemplates/DataGridTemplate.xaml" />
+            <ResourceDictionary Source="ControlTemplates/GridTemplate.xaml" />
+            <ResourceDictionary Source="ControlTemplates/GroupBoxTemplate.xaml" />
+            <ResourceDictionary Source="ControlTemplates/ImageTemplate.xaml" />
+            <ResourceDictionary Source="ControlTemplates/ListBoxTemplate.xaml" />
+            <ResourceDictionary Source="ControlTemplates/ListViewTemplate.xaml" />
+            <ResourceDictionary Source="ControlTemplates/ProgressBarTemplate.xaml" />
+            <ResourceDictionary Source="ControlTemplates/RadioButtonTemplate.xaml" />
+            <ResourceDictionary Source="ControlTemplates/ScrollViewerTemplate.xaml" />
+            <ResourceDictionary Source="ControlTemplates/StackPanelTemplate.xaml" />
+            <ResourceDictionary Source="ControlTemplates/TextBlockTemplate.xaml" />
+            <ResourceDictionary Source="ControlTemplates/TextBoxTemplate.xaml" />
+            <ResourceDictionary Source="ControlTemplates/TreeViewTemplate.xaml" />
+            <ResourceDictionary Source="ControlTemplates/WrapPanelTemplate.xaml" />
+         </ResourceDictionary.MergedDictionaries>
+      </ResourceDictionary>
+   </Application.Resources>
+</Application>
