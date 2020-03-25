@@ -10,6 +10,7 @@
             <ResourceDictionary Source="ControlTemplates/ButtonTemplate.xaml" />
             <ResourceDictionary Source="ControlTemplates/CheckBoxTemplate.xaml" />
             <ResourceDictionary Source="ControlTemplates/ComboBoxTemplate.xaml" />
+            <ResourceDictionary Source="ControlTemplates/ControlTemplate.xaml" />
             <ResourceDictionary Source="ControlTemplates/DataGridTemplate.xaml" />
             <ResourceDictionary Source="ControlTemplates/GridTemplate.xaml" />
             <ResourceDictionary Source="ControlTemplates/GroupBoxTemplate.xaml" />

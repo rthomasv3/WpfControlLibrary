@@ -6,56 +6,36 @@
          <FrameworkElement x:Key="_subscriptionOptions" DataContext="{Binding SubscriptionOptions}" />
       </DataTemplate.Resources>
 
-      <ScrollViewer Padding="5"
-                    HorizontalScrollBarVisibility="Auto"
-                    VerticalScrollBarVisibility="Auto">
-         <Grid>
-            <Grid.RowDefinitions>
-               <RowDefinition Height="Auto" />
-               <RowDefinition Height="Auto" />
-               <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
+      <StackPanel>
+         <TextBlock Margin="0,15,0,2" Text="DataGrid with auto generated columns." />
+         <DataGrid ItemsSource="{Binding Users}" />
 
-            <TextBlock Grid.Row="0"
-                       Style="{StaticResource _titleTextBlock}"
-                       Text="{Binding Title}" />
+         <TextBlock Margin="0,15,0,2" Text="Readonly DataGrid with auto generated columns." />
+         <DataGrid IsReadOnly="True" ItemsSource="{Binding Users}" />
 
-            <TextBlock Grid.Row="1"
-                       Style="{StaticResource _subtitleTextBlock}"
-                       Text="{Binding Subtitle}" />
+         <TextBlock Margin="0,15,0,2" Text="DataGrid with defined columns and selection tracking." />
+         <DataGrid AutoGenerateColumns="False"
+                   ItemsSource="{Binding Users}"
+                   SelectedItem="{Binding SelectedUser}">
+            <DataGrid.Columns>
+               <DataGridTextColumn Binding="{Binding Name}" Header="Name" />
+               <DataGridHyperlinkColumn Binding="{Binding Email}" Header="Email" />
+               <DataGridCheckBoxColumn Binding="{Binding IsSubscribed}" Header="Is Subscribed" />
+               <DataGridComboBoxColumn Header="Subscription" SelectedItemBinding="{Binding SelectedSubscription}">
+                  <DataGridComboBoxColumn.ElementStyle>
+                     <Style>
+                        <Setter Property="ComboBox.ItemsSource" Value="{Binding DataContext.SubscriptionOptions, RelativeSource={RelativeSource AncestorType=DataGrid}}" />
+                     </Style>
+                  </DataGridComboBoxColumn.ElementStyle>
 
-            <StackPanel Grid.Row="2">
-               <TextBlock Margin="0,15,0,2" Text="DataGrid with auto generated columns." />
-               <DataGrid ItemsSource="{Binding Users}" />
-
-               <TextBlock Margin="0,15,0,2" Text="Readonly DataGrid with auto generated columns." />
-               <DataGrid IsReadOnly="True" ItemsSource="{Binding Users}" />
-
-               <TextBlock Margin="0,15,0,2" Text="DataGrid with defined columns and selection tracking." />
-               <DataGrid AutoGenerateColumns="False"
-                         ItemsSource="{Binding Users}"
-                         SelectedItem="{Binding SelectedUser}">
-                  <DataGrid.Columns>
-                     <DataGridTextColumn Binding="{Binding Name}" Header="Name" />
-                     <DataGridHyperlinkColumn Binding="{Binding Email}" Header="Email" />
-                     <DataGridCheckBoxColumn Binding="{Binding IsSubscribed}" Header="Is Subscribed" />
-                     <DataGridComboBoxColumn Header="Subscription" SelectedItemBinding="{Binding SelectedSubscription}">
-                        <DataGridComboBoxColumn.ElementStyle>
-                           <Style>
-                              <Setter Property="ComboBox.ItemsSource" Value="{Binding DataContext.SubscriptionOptions, RelativeSource={RelativeSource AncestorType=DataGrid}}" />
-                           </Style>
-                        </DataGridComboBoxColumn.ElementStyle>
-
-                        <DataGridComboBoxColumn.EditingElementStyle>
-                           <Style>
-                              <Setter Property="ComboBox.ItemsSource" Value="{Binding DataContext.SubscriptionOptions, RelativeSource={RelativeSource AncestorType=DataGrid}}" />
-                           </Style>
-                        </DataGridComboBoxColumn.EditingElementStyle>
-                     </DataGridComboBoxColumn>
-                  </DataGrid.Columns>
-               </DataGrid>
-            </StackPanel>
-         </Grid>
-      </ScrollViewer>
+                  <DataGridComboBoxColumn.EditingElementStyle>
+                     <Style>
+                        <Setter Property="ComboBox.ItemsSource" Value="{Binding DataContext.SubscriptionOptions, RelativeSource={RelativeSource AncestorType=DataGrid}}" />
+                     </Style>
+                  </DataGridComboBoxColumn.EditingElementStyle>
+               </DataGridComboBoxColumn>
+            </DataGrid.Columns>
+         </DataGrid>
+      </StackPanel>
    </DataTemplate>
 </ResourceDictionary>

@@ -2,185 +2,164 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:cvm="clr-namespace:CodeCompendium.WpfControlLibrary.ControlViewModels">
    <DataTemplate DataType="{x:Type cvm:GridViewModel}">
-      <ScrollViewer Padding="5"
-                    HorizontalScrollBarVisibility="Auto"
-                    VerticalScrollBarVisibility="Auto">
-         <Grid>
+      <StackPanel>
+         <StackPanel.Resources>
+            <Style TargetType="{x:Type Grid}">
+               <Setter Property="Margin" Value="0,15,0,0" />
+            </Style>
+         </StackPanel.Resources>
+
+         <CheckBox Grid.Row="2"
+                   Margin="0,10,0,0"
+                   Content="Show Grid Lines"
+                   IsChecked="{Binding ShowGridLines}" />
+
+         <Grid ShowGridLines="{Binding ShowGridLines}">
+            <Grid.RowDefinitions>
+               <RowDefinition Height="Auto" />
+               <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+               <ColumnDefinition Width="Auto" />
+               <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row="0"
+                       Grid.Column="0"
+                       Grid.ColumnSpan="2"
+                       Text="Grid with auto column widths and text with column span." />
+
+            <TextBlock Grid.Row="1"
+                       Grid.Column="0"
+                       Text="Column 0" />
+
+            <TextBlock Grid.Row="1"
+                       Grid.Column="1"
+                       Text="Column 1" />
+         </Grid>
+
+         <Grid ShowGridLines="{Binding ShowGridLines}">
+            <Grid.RowDefinitions>
+               <RowDefinition Height="Auto" />
+               <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+               <ColumnDefinition Width="*" />
+               <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row="0"
+                       Grid.Column="0"
+                       Text="Grid with full column widths." />
+
+            <TextBlock Grid.Row="1"
+                       Grid.Column="0"
+                       Text="Column 0" />
+
+            <TextBlock Grid.Row="1"
+                       Grid.Column="1"
+                       Text="Column 1" />
+         </Grid>
+
+         <Grid ShowGridLines="{Binding ShowGridLines}">
             <Grid.RowDefinitions>
                <RowDefinition Height="Auto" />
                <RowDefinition Height="Auto" />
                <RowDefinition Height="Auto" />
-               <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
+            <Grid.ColumnDefinitions>
+               <ColumnDefinition Width="Auto" />
+               <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
             <TextBlock Grid.Row="0"
-                       Style="{StaticResource _titleTextBlock}"
-                       Text="{Binding Title}" />
+                       Grid.Column="0"
+                       Grid.ColumnSpan="2"
+                       Text="Grid with row span image." />
+
+            <Image Grid.Row="1"
+                   Grid.RowSpan="2"
+                   Grid.Column="0"
+                   Width="24"
+                   Height="24"
+                   Source="{StaticResource _logoSmallImage}" />
 
             <TextBlock Grid.Row="1"
-                       Style="{StaticResource _subtitleTextBlock}"
-                       Text="{Binding Subtitle}" />
+                       Grid.Column="1"
+                       Text="Row 1, Column 1" />
 
-            <CheckBox Grid.Row="2"
-                      Margin="0,10,0,0"
-                      Content="Show Grid Lines"
-                      IsChecked="{Binding ShowGridLines}" />
-
-            <StackPanel Grid.Row="3">
-               <StackPanel.Resources>
-                  <Style TargetType="{x:Type Grid}">
-                     <Setter Property="Margin" Value="0,15,0,0" />
-                  </Style>
-               </StackPanel.Resources>
-
-               <Grid ShowGridLines="{Binding ShowGridLines}">
-                  <Grid.RowDefinitions>
-                     <RowDefinition Height="Auto" />
-                     <RowDefinition Height="Auto" />
-                  </Grid.RowDefinitions>
-
-                  <Grid.ColumnDefinitions>
-                     <ColumnDefinition Width="Auto" />
-                     <ColumnDefinition Width="Auto" />
-                  </Grid.ColumnDefinitions>
-
-                  <TextBlock Grid.Row="0"
-                             Grid.Column="0"
-                             Grid.ColumnSpan="2"
-                             Text="Grid with auto column widths and text with column span." />
-
-                  <TextBlock Grid.Row="1"
-                             Grid.Column="0"
-                             Text="Column 0" />
-
-                  <TextBlock Grid.Row="1"
-                             Grid.Column="1"
-                             Text="Column 1" />
-               </Grid>
-
-               <Grid ShowGridLines="{Binding ShowGridLines}">
-                  <Grid.RowDefinitions>
-                     <RowDefinition Height="Auto" />
-                     <RowDefinition Height="Auto" />
-                  </Grid.RowDefinitions>
-
-                  <Grid.ColumnDefinitions>
-                     <ColumnDefinition Width="*" />
-                     <ColumnDefinition Width="*" />
-                  </Grid.ColumnDefinitions>
-
-                  <TextBlock Grid.Row="0"
-                             Grid.Column="0"
-                             Text="Grid with full column widths." />
-
-                  <TextBlock Grid.Row="1"
-                             Grid.Column="0"
-                             Text="Column 0" />
-
-                  <TextBlock Grid.Row="1"
-                             Grid.Column="1"
-                             Text="Column 1" />
-               </Grid>
-
-               <Grid ShowGridLines="{Binding ShowGridLines}">
-                  <Grid.RowDefinitions>
-                     <RowDefinition Height="Auto" />
-                     <RowDefinition Height="Auto" />
-                     <RowDefinition Height="Auto" />
-                  </Grid.RowDefinitions>
-
-                  <Grid.ColumnDefinitions>
-                     <ColumnDefinition Width="Auto" />
-                     <ColumnDefinition Width="Auto" />
-                  </Grid.ColumnDefinitions>
-
-                  <TextBlock Grid.Row="0"
-                             Grid.Column="0"
-                             Grid.ColumnSpan="2"
-                             Text="Grid with row span image." />
-
-                  <Image Grid.Row="1"
-                         Grid.RowSpan="2"
-                         Grid.Column="0"
-                         Width="24"
-                         Height="24"
-                         Source="{StaticResource _logoSmallImage}" />
-
-                  <TextBlock Grid.Row="1"
-                             Grid.Column="1"
-                             Text="Row 1, Column 1" />
-
-                  <TextBlock Grid.Row="2"
-                             Grid.Column="1"
-                             Text="Row 2, Column 1" />
-               </Grid>
-
-               <Grid ShowGridLines="{Binding ShowGridLines}">
-                  <Grid.RowDefinitions>
-                     <RowDefinition Height="Auto" />
-                     <RowDefinition Height="Auto" />
-                  </Grid.RowDefinitions>
-
-                  <Grid.ColumnDefinitions>
-                     <ColumnDefinition Width="3*" />
-                     <ColumnDefinition Width="7*" />
-                  </Grid.ColumnDefinitions>
-
-                  <TextBlock Grid.Row="0"
-                             Grid.Column="0"
-                             Text="Grid with percentage column widths." />
-
-                  <TextBlock Grid.Row="1"
-                             Grid.Column="0"
-                             Text="Column 0" />
-
-                  <TextBlock Grid.Row="1"
-                             Grid.Column="1"
-                             Text="Column 1" />
-               </Grid>
-
-               <Grid ShowGridLines="{Binding ShowGridLines}">
-                  <Grid.RowDefinitions>
-                     <RowDefinition Height="Auto" />
-                     <RowDefinition Height="Auto" />
-                     <RowDefinition Height="5" />
-                     <RowDefinition Height="Auto" />
-                  </Grid.RowDefinitions>
-
-                  <Grid.ColumnDefinitions>
-                     <ColumnDefinition Width="Auto" />
-                     <ColumnDefinition Width="Auto" />
-                  </Grid.ColumnDefinitions>
-
-                  <TextBlock Grid.Row="0"
-                             Grid.Column="0"
-                             Grid.ColumnSpan="3"
-                             Text="Grid with splitter for resizing." />
-
-                  <TextBlock Grid.Row="1"
-                             Grid.Column="0"
-                             Text="Row 1, Column 0" />
-
-                  <TextBlock Grid.Row="1"
-                             Grid.Column="1"
-                             Text="Row 1, Column 1" />
-
-                  <GridSplitter Grid.Row="2"
-                                Grid.Column="0"
-                                Grid.ColumnSpan="3"
-                                HorizontalAlignment="Stretch"
-                                Background="LightGray" />
-
-                  <TextBlock Grid.Row="3"
-                             Grid.Column="0"
-                             Text="Row 3, Column 0" />
-
-                  <TextBlock Grid.Row="3"
-                             Grid.Column="1"
-                             Text="Row 3, Column 1" />
-               </Grid>
-            </StackPanel>
+            <TextBlock Grid.Row="2"
+                       Grid.Column="1"
+                       Text="Row 2, Column 1" />
          </Grid>
-      </ScrollViewer>
+
+         <Grid ShowGridLines="{Binding ShowGridLines}">
+            <Grid.RowDefinitions>
+               <RowDefinition Height="Auto" />
+               <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+               <ColumnDefinition Width="3*" />
+               <ColumnDefinition Width="7*" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row="0"
+                       Grid.Column="0"
+                       Text="Grid with percentage column widths." />
+
+            <TextBlock Grid.Row="1"
+                       Grid.Column="0"
+                       Text="Column 0" />
+
+            <TextBlock Grid.Row="1"
+                       Grid.Column="1"
+                       Text="Column 1" />
+         </Grid>
+
+         <Grid ShowGridLines="{Binding ShowGridLines}">
+            <Grid.RowDefinitions>
+               <RowDefinition Height="Auto" />
+               <RowDefinition Height="Auto" />
+               <RowDefinition Height="5" />
+               <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+               <ColumnDefinition Width="Auto" />
+               <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row="0"
+                       Grid.Column="0"
+                       Grid.ColumnSpan="3"
+                       Text="Grid with splitter for resizing." />
+
+            <TextBlock Grid.Row="1"
+                       Grid.Column="0"
+                       Text="Row 1, Column 0" />
+
+            <TextBlock Grid.Row="1"
+                       Grid.Column="1"
+                       Text="Row 1, Column 1" />
+
+            <GridSplitter Grid.Row="2"
+                          Grid.Column="0"
+                          Grid.ColumnSpan="3"
+                          HorizontalAlignment="Stretch"
+                          Background="LightGray" />
+
+            <TextBlock Grid.Row="3"
+                       Grid.Column="0"
+                       Text="Row 3, Column 0" />
+
+            <TextBlock Grid.Row="3"
+                       Grid.Column="1"
+                       Text="Row 3, Column 1" />
+         </Grid>
+      </StackPanel>
    </DataTemplate>
 </ResourceDictionary>

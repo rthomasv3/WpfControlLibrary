@@ -2,77 +2,57 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:cvm="clr-namespace:CodeCompendium.WpfControlLibrary.ControlViewModels">
    <DataTemplate DataType="{x:Type cvm:ComboBoxViewModel}">
-      <ScrollViewer Padding="5"
-                    HorizontalScrollBarVisibility="Auto"
-                    VerticalScrollBarVisibility="Auto">
-         <Grid>
-            <Grid.RowDefinitions>
-               <RowDefinition Height="Auto" />
-               <RowDefinition Height="Auto" />
-               <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
+      <StackPanel>
+         <StackPanel.Resources>
+            <Style TargetType="{x:Type ComboBox}">
+               <Setter Property="Margin" Value="0,10,0,0" />
+               <Setter Property="HorizontalAlignment" Value="Left" />
+            </Style>
+         </StackPanel.Resources>
 
-            <TextBlock Grid.Row="0"
-                       Style="{StaticResource _titleTextBlock}"
-                       Text="{Binding Title}" />
+         <ComboBox>
+            <ComboBoxItem Content="Hardcoded Item 1" />
+            <ComboBoxItem Content="Hardcoded Item 2" />
+            <ComboBoxItem Content="Hardcoded Item 3" IsSelected="True" />
+         </ComboBox>
 
-            <TextBlock Grid.Row="1"
-                       Style="{StaticResource _subtitleTextBlock}"
-                       Text="{Binding Subtitle}" />
+         <ComboBox>
+            <ComboBoxItem IsSelected="True">
+               <StackPanel Orientation="Horizontal">
+                  <TextBlock Margin="5,0,5,0" Text="Option 1 Text and Image" />
 
-            <StackPanel Grid.Row="2">
-               <StackPanel.Resources>
-                  <Style TargetType="{x:Type ComboBox}">
-                     <Setter Property="Margin" Value="0,10,0,0" />
-                     <Setter Property="HorizontalAlignment" Value="Left" />
-                  </Style>
-               </StackPanel.Resources>
+                  <Image Width="16" Source="{StaticResource _logoSmallImage}" />
+               </StackPanel>
+            </ComboBoxItem>
 
-               <ComboBox>
-                  <ComboBoxItem Content="Hardcoded Item 1" />
-                  <ComboBoxItem Content="Hardcoded Item 2" />
-                  <ComboBoxItem Content="Hardcoded Item 3" IsSelected="True" />
-               </ComboBox>
+            <ComboBoxItem>
+               <StackPanel Orientation="Horizontal">
+                  <TextBlock Margin="5,0,5,0" Text="Option 2 Text and Image" />
 
-               <ComboBox>
-                  <ComboBoxItem IsSelected="True">
-                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Margin="5,0,5,0" Text="Option 1 Text and Image" />
+                  <Image Width="16" Source="{StaticResource _logoSmallImage}" />
+               </StackPanel>
+            </ComboBoxItem>
 
-                        <Image Width="16" Source="{StaticResource _logoSmallImage}" />
-                     </StackPanel>
-                  </ComboBoxItem>
+            <ComboBoxItem>
+               <StackPanel Orientation="Horizontal">
+                  <TextBlock Margin="5,0,5,0" Text="Option 3 Text and Image" />
 
-                  <ComboBoxItem>
-                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Margin="5,0,5,0" Text="Option 2 Text and Image" />
+                  <Image Width="16" Source="{StaticResource _logoSmallImage}" />
+               </StackPanel>
+            </ComboBoxItem>
+         </ComboBox>
 
-                        <Image Width="16" Source="{StaticResource _logoSmallImage}" />
-                     </StackPanel>
-                  </ComboBoxItem>
+         <ComboBox IsEditable="True">
+            <ComboBoxItem Content="Editable Item 1" IsSelected="True" />
+            <ComboBoxItem Content="Editable Item 2" />
+            <ComboBoxItem Content="Editable Item 3" />
+         </ComboBox>
 
-                  <ComboBoxItem>
-                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Margin="5,0,5,0" Text="Option 3 Text and Image" />
+         <ComboBox ItemsSource="{Binding StringOptions}" SelectedItem="{Binding SelectedStringOption}" />
 
-                        <Image Width="16" Source="{StaticResource _logoSmallImage}" />
-                     </StackPanel>
-                  </ComboBoxItem>
-               </ComboBox>
-
-               <ComboBox IsEditable="True">
-                  <ComboBoxItem Content="Editable Item 1" IsSelected="True" />
-                  <ComboBoxItem Content="Editable Item 2" />
-                  <ComboBoxItem Content="Editable Item 3" />
-               </ComboBox>
-
-               <ComboBox ItemsSource="{Binding StringOptions}" SelectedItem="{Binding SelectedStringOption}" />
-
-               <ComboBox DisplayMemberPath="Value"
-                         ItemsSource="{Binding ObjectOptions}"
-                         SelectedItem="{Binding SelectedObjectOption}" />
-            </StackPanel>
-         </Grid>
-      </ScrollViewer>
+         <ComboBox DisplayMemberPath="Value"
+                   ItemsSource="{Binding ObjectOptions}"
+                   SelectedItem="{Binding SelectedObjectOption}" />
+      </StackPanel>
    </DataTemplate>
 </ResourceDictionary>

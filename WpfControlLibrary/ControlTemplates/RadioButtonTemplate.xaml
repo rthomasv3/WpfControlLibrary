@@ -2,60 +2,40 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:cvm="clr-namespace:CodeCompendium.WpfControlLibrary.ControlViewModels">
    <DataTemplate DataType="{x:Type cvm:RadioButtonViewModel}">
-      <ScrollViewer Padding="5"
-                    HorizontalScrollBarVisibility="Auto"
-                    VerticalScrollBarVisibility="Auto">
-         <Grid>
-            <Grid.RowDefinitions>
-               <RowDefinition Height="Auto" />
-               <RowDefinition Height="Auto" />
-               <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
+      <StackPanel>
+         <StackPanel.Resources>
+            <Style TargetType="{x:Type RadioButton}">
+               <Setter Property="Margin" Value="0,8,0,0" />
+            </Style>
 
-            <TextBlock Grid.Row="0"
-                       Style="{StaticResource _titleTextBlock}"
-                       Text="{Binding Title}" />
+            <Style TargetType="{x:Type TextBlock}">
+               <Setter Property="Margin" Value="0,15,0,0" />
+            </Style>
+         </StackPanel.Resources>
 
-            <TextBlock Grid.Row="1"
-                       Style="{StaticResource _subtitleTextBlock}"
-                       Text="{Binding Subtitle}" />
+         <TextBlock Text="Radio buttons within the same parent." />
+         <StackPanel>
+            <RadioButton Content="Option 1" />
+            <RadioButton Content="Option 2" />
+         </StackPanel>
 
-            <StackPanel Grid.Row="2">
-               <StackPanel.Resources>
-                  <Style TargetType="{x:Type RadioButton}">
-                     <Setter Property="Margin" Value="0,8,0,0" />
-                  </Style>
+         <TextBlock Text="Radio buttons with bindings" />
+         <StackPanel>
+            <RadioButton Content="Option 1" IsChecked="{Binding Option1Checked}" />
+            <RadioButton Content="Option 2" IsChecked="{Binding Option2Checked}" />
+         </StackPanel>
 
-                  <Style TargetType="{x:Type TextBlock}">
-                     <Setter Property="Margin" Value="0,15,0,0" />
-                  </Style>
-               </StackPanel.Resources>
-
-               <TextBlock Text="Radio buttons within the same parent." />
-               <StackPanel>
-                  <RadioButton Content="Option 1" />
-                  <RadioButton Content="Option 2" />
-               </StackPanel>
-
-               <TextBlock Text="Radio buttons with bindings" />
-               <StackPanel>
-                  <RadioButton Content="Option 1" IsChecked="{Binding Option1Checked}" />
-                  <RadioButton Content="Option 2" IsChecked="{Binding Option2Checked}" />
-               </StackPanel>
-
-               <TextBlock Text="Radio buttons with groups." />
-               <StackPanel>
-                  <RadioButton Content="Option 1 in Group 1"
-                               GroupName="Group1"
-                               IsChecked="True" />
-                  <RadioButton Content="Option 2 in Group 1" GroupName="Group1" />
-                  <RadioButton Content="Option 1 in Group 2" GroupName="Group2" />
-                  <RadioButton Content="Option 1 in Group 2"
-                               GroupName="Group2"
-                               IsChecked="True" />
-               </StackPanel>
-            </StackPanel>
-         </Grid>
-      </ScrollViewer>
+         <TextBlock Text="Radio buttons with groups." />
+         <StackPanel>
+            <RadioButton Content="Option 1 in Group 1"
+                         GroupName="Group1"
+                         IsChecked="True" />
+            <RadioButton Content="Option 2 in Group 1" GroupName="Group1" />
+            <RadioButton Content="Option 1 in Group 2" GroupName="Group2" />
+            <RadioButton Content="Option 1 in Group 2"
+                         GroupName="Group2"
+                         IsChecked="True" />
+         </StackPanel>
+      </StackPanel>
    </DataTemplate>
 </ResourceDictionary>

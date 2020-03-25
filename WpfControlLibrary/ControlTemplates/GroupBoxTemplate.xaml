@@ -2,62 +2,42 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:cvm="clr-namespace:CodeCompendium.WpfControlLibrary.ControlViewModels">
    <DataTemplate DataType="{x:Type cvm:GroupBoxViewModel}">
-      <ScrollViewer Padding="5"
-                    HorizontalScrollBarVisibility="Auto"
-                    VerticalScrollBarVisibility="Auto">
-         <Grid>
-            <Grid.RowDefinitions>
-               <RowDefinition Height="Auto" />
-               <RowDefinition Height="Auto" />
-               <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
+      <StackPanel>
+         <StackPanel.Resources>
+            <Style TargetType="{x:Type GroupBox}">
+               <Setter Property="Margin" Value="0,15,0,0" />
+            </Style>
+         </StackPanel.Resources>
 
-            <TextBlock Grid.Row="0"
-                       Style="{StaticResource _titleTextBlock}"
-                       Text="{Binding Title}" />
+         <GroupBox Header="Group Header">
+            <TextBlock Text="Basic group content." />
+         </GroupBox>
 
-            <TextBlock Grid.Row="1"
-                       Style="{StaticResource _subtitleTextBlock}"
-                       Text="{Binding Subtitle}" />
+         <GroupBox Padding="10" Header="Group Header">
+            <TextBlock Text="Group with padding." />
+         </GroupBox>
 
-            <StackPanel Grid.Row="2">
-               <StackPanel.Resources>
-                  <Style TargetType="{x:Type GroupBox}">
-                     <Setter Property="Margin" Value="0,15,0,0" />
-                  </Style>
-               </StackPanel.Resources>
+         <GroupBox Padding="10"
+                   BorderBrush="CornflowerBlue"
+                   BorderThickness="2"
+                   Header="Group Header">
+            <TextBlock Text="Group with border customizations." />
+         </GroupBox>
 
-               <GroupBox Header="Group Header">
-                  <TextBlock Text="Basic group content." />
-               </GroupBox>
+         <GroupBox Padding="10">
+            <GroupBox.Header>
+               <StackPanel Orientation="Horizontal">
+                  <Image Width="16" Source="{StaticResource _logoSmallImage}" />
 
-               <GroupBox Padding="10" Header="Group Header">
-                  <TextBlock Text="Group with padding." />
-               </GroupBox>
+                  <TextBlock Margin="5,0,5,0"
+                             FontWeight="Bold"
+                             Foreground="Gray"
+                             Text="Group Header Text" />
+               </StackPanel>
+            </GroupBox.Header>
 
-               <GroupBox Padding="10"
-                         BorderBrush="CornflowerBlue"
-                         BorderThickness="2"
-                         Header="Group Header">
-                  <TextBlock Text="Group with border customizations." />
-               </GroupBox>
-
-               <GroupBox Padding="10">
-                  <GroupBox.Header>
-                     <StackPanel Orientation="Horizontal">
-                        <Image Width="16" Source="{StaticResource _logoSmallImage}" />
-
-                        <TextBlock Margin="5,0,5,0"
-                                   FontWeight="Bold"
-                                   Foreground="Gray"
-                                   Text="Group Header Text" />
-                     </StackPanel>
-                  </GroupBox.Header>
-
-                  <TextBlock Text="Group with header customizations." />
-               </GroupBox>
-            </StackPanel>
-         </Grid>
-      </ScrollViewer>
+            <TextBlock Text="Group with header customizations." />
+         </GroupBox>
+      </StackPanel>
    </DataTemplate>
 </ResourceDictionary>

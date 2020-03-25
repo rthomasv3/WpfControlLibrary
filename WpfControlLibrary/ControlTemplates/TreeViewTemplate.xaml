@@ -3,58 +3,38 @@
                     xmlns:cvm="clr-namespace:CodeCompendium.WpfControlLibrary.ControlViewModels"
                     xmlns:models="clr-namespace:CodeCompendium.WpfControlLibrary.Models">
    <DataTemplate DataType="{x:Type cvm:TreeViewViewModel}">
-      <ScrollViewer Padding="5"
-                    HorizontalScrollBarVisibility="Auto"
-                    VerticalScrollBarVisibility="Auto">
-         <Grid>
-            <Grid.RowDefinitions>
-               <RowDefinition Height="Auto" />
-               <RowDefinition Height="Auto" />
-               <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
+      <StackPanel>
+         <StackPanel.Resources>
+            <Style TargetType="{x:Type TreeView}">
+               <Setter Property="Margin" Value="0,10,0,0" />
+            </Style>
+         </StackPanel.Resources>
 
-            <TextBlock Grid.Row="0"
-                       Style="{StaticResource _titleTextBlock}"
-                       Text="{Binding Title}" />
+         <TreeView Height="150">
+            <TreeViewItem Header="Hardcoded Parent 0">
+               <TreeViewItem Header="Child 1" />
+               <TreeViewItem Header="Child 2" />
+               <TreeViewItem Header="Child 3" />
+            </TreeViewItem>
 
-            <TextBlock Grid.Row="1"
-                       Style="{StaticResource _subtitleTextBlock}"
-                       Text="{Binding Subtitle}" />
+            <TreeViewItem Header="Hardcoded Parent 1">
+               <TreeViewItem Header="Child 1" />
+               <TreeViewItem Header="Child 2" />
+               <TreeViewItem Header="Child 3" />
+            </TreeViewItem>
+         </TreeView>
 
-            <StackPanel Grid.Row="2">
-               <StackPanel.Resources>
-                  <Style TargetType="{x:Type TreeView}">
-                     <Setter Property="Margin" Value="0,10,0,0" />
-                  </Style>
-               </StackPanel.Resources>
+         <TreeView Height="150" ItemsSource="{Binding TreeItems}">
+            <TreeView.Resources>
+               <HierarchicalDataTemplate DataType="{x:Type models:TreeItemParent}" ItemsSource="{Binding Children}">
+                  <TextBlock Text="{Binding Text}" />
+               </HierarchicalDataTemplate>
 
-               <TreeView Height="150">
-                  <TreeViewItem Header="Hardcoded Parent 0">
-                     <TreeViewItem Header="Child 1" />
-                     <TreeViewItem Header="Child 2" />
-                     <TreeViewItem Header="Child 3" />
-                  </TreeViewItem>
-
-                  <TreeViewItem Header="Hardcoded Parent 1">
-                     <TreeViewItem Header="Child 1" />
-                     <TreeViewItem Header="Child 2" />
-                     <TreeViewItem Header="Child 3" />
-                  </TreeViewItem>
-               </TreeView>
-
-               <TreeView Height="150" ItemsSource="{Binding TreeItems}">
-                  <TreeView.Resources>
-                     <HierarchicalDataTemplate DataType="{x:Type models:TreeItemParent}" ItemsSource="{Binding Children}">
-                        <TextBlock Text="{Binding Text}" />
-                     </HierarchicalDataTemplate>
-
-                     <DataTemplate DataType="{x:Type models:TreeItemChild}">
-                        <TextBlock Foreground="CornflowerBlue" Text="{Binding Text}" />
-                     </DataTemplate>
-                  </TreeView.Resources>
-               </TreeView>
-            </StackPanel>
-         </Grid>
-      </ScrollViewer>
+               <DataTemplate DataType="{x:Type models:TreeItemChild}">
+                  <TextBlock Foreground="CornflowerBlue" Text="{Binding Text}" />
+               </DataTemplate>
+            </TreeView.Resources>
+         </TreeView>
+      </StackPanel>
    </DataTemplate>
 </ResourceDictionary>

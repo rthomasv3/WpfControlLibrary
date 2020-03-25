@@ -74,61 +74,41 @@
          </Style>
       </DataTemplate.Resources>
 
-      <ScrollViewer Padding="5"
-                    HorizontalScrollBarVisibility="Auto"
-                    VerticalScrollBarVisibility="Auto">
-         <Grid>
-            <Grid.RowDefinitions>
-               <RowDefinition Height="Auto" />
-               <RowDefinition Height="Auto" />
-               <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
+      <StackPanel>
+         <StackPanel.Resources>
+            <Style TargetType="{x:Type TextBox}">
+               <Setter Property="Margin" Value="1,15,0,0" />
+               <Setter Property="HorizontalAlignment" Value="Left" />
+            </Style>
 
-            <TextBlock Grid.Row="0"
-                       Style="{StaticResource _titleTextBlock}"
-                       Text="{Binding Title}" />
+            <Style TargetType="{x:Type TextBlock}">
+               <Setter Property="Margin" Value="0,15,0,0" />
+            </Style>
+         </StackPanel.Resources>
 
-            <TextBlock Grid.Row="1"
-                       Style="{StaticResource _subtitleTextBlock}"
-                       Text="{Binding Subtitle}" />
+         <TextBox Width="150" Text="Basic text box..." />
 
-            <StackPanel Grid.Row="2">
-               <StackPanel.Resources>
-                  <Style TargetType="{x:Type TextBox}">
-                     <Setter Property="Margin" Value="1,15,0,0" />
-                     <Setter Property="HorizontalAlignment" Value="Left" />
-                  </Style>
+         <TextBox Width="150"
+                  Height="50"
+                  AcceptsReturn="True"
+                  Text="Multiline text box with lots of text."
+                  TextWrapping="Wrap" />
 
-                  <Style TargetType="{x:Type TextBlock}">
-                     <Setter Property="Margin" Value="0,15,0,0" />
-                  </Style>
-               </StackPanel.Resources>
+         <TextBox Width="150" Text="{Binding Text}" />
 
-               <TextBox Width="150" Text="Basic text box..." />
+         <TextBox Width="250" Text="{Binding PropChangeText, UpdateSourceTrigger=PropertyChanged}" />
 
-               <TextBox Width="150"
-                        Height="50"
-                        AcceptsReturn="True"
-                        Text="Multiline text box with lots of text."
-                        TextWrapping="Wrap" />
+         <TextBox Width="30" Text="{Binding Number, UpdateSourceTrigger=PropertyChanged}" />
 
-               <TextBox Width="150" Text="{Binding Text}" />
+         <TextBox Width="200"
+                  Margin="0,15,0,0"
+                  HorizontalAlignment="Left"
+                  Style="{StaticResource _placeholderTextBoxStyle}"
+                  Tag="One option for placeholder text..." />
 
-               <TextBox Width="250" Text="{Binding PropChangeText, UpdateSourceTrigger=PropertyChanged}" />
-
-               <TextBox Width="30" Text="{Binding Number, UpdateSourceTrigger=PropertyChanged}" />
-
-               <TextBox Width="200"
-                        Margin="0,15,0,0"
-                        HorizontalAlignment="Left"
-                        Style="{StaticResource _placeholderTextBoxStyle}"
-                        Tag="One option for placeholder text..." />
-
-               <TextBox BorderThickness="0"
-                        IsReadOnly="True"
-                        Text="Readonly text box for display only with highlighting and copy/paste support." />
-            </StackPanel>
-         </Grid>
-      </ScrollViewer>
+         <TextBox BorderThickness="0"
+                  IsReadOnly="True"
+                  Text="Readonly text box for display only with highlighting and copy/paste support." />
+      </StackPanel>
    </DataTemplate>
 </ResourceDictionary>

@@ -2,87 +2,67 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:cvm="clr-namespace:CodeCompendium.WpfControlLibrary.ControlViewModels">
    <DataTemplate DataType="{x:Type cvm:ButtonViewModel}">
-      <ScrollViewer Padding="5"
-                    HorizontalScrollBarVisibility="Auto"
-                    VerticalScrollBarVisibility="Auto">
-         <Grid>
-            <Grid.RowDefinitions>
-               <RowDefinition Height="Auto" />
-               <RowDefinition Height="Auto" />
-               <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
+      <StackPanel>
+         <StackPanel.Resources>
+            <Style TargetType="{x:Type Button}">
+               <Setter Property="Margin" Value="0,10,0,0" />
+               <Setter Property="Padding" Value="5" />
+               <Setter Property="HorizontalAlignment" Value="Left" />
+            </Style>
+         </StackPanel.Resources>
 
-            <TextBlock Grid.Row="0"
-                       Style="{StaticResource _titleTextBlock}"
-                       Text="{Binding Title}" />
+         <Button Content="Button With Text Content" />
 
-            <TextBlock Grid.Row="1"
-                       Style="{StaticResource _subtitleTextBlock}"
-                       Text="{Binding Subtitle}" />
+         <Button>
+            <StackPanel Orientation="Horizontal">
+               <Image Width="16" Source="{StaticResource _logoSmallImage}" />
 
-            <StackPanel Grid.Row="2">
-               <StackPanel.Resources>
-                  <Style TargetType="{x:Type Button}">
-                     <Setter Property="Margin" Value="0,10,0,0" />
-                     <Setter Property="Padding" Value="5" />
-                     <Setter Property="HorizontalAlignment" Value="Left" />
-                  </Style>
-               </StackPanel.Resources>
-
-               <Button Content="Button With Text Content" />
-
-               <Button>
-                  <StackPanel Orientation="Horizontal">
-                     <Image Width="16" Source="{StaticResource _logoSmallImage}" />
-
-                     <TextBlock Margin="5,0,5,0" Text="Content Image and Text" />
-                  </StackPanel>
-               </Button>
-
-               <Button Content="Button Hand Cursor" Cursor="Hand" />
-
-               <Button Content="{Binding ButtonText}" />
-
-               <Button Command="{Binding Command}" Content="Button With Command" />
-
-               <Button Command="{Binding CommandWithParameter}"
-                       CommandParameter="something"
-                       Content="Button With Command and Parameter" />
-
-               <Button Content="Button With Colors">
-                  <Button.Style>
-                     <Style TargetType="Button">
-                        <Setter Property="OverridesDefaultStyle" Value="False" />
-                        <Setter Property="Margin" Value="0,10,0,0" />
-                        <Setter Property="Padding" Value="5" />
-                        <Setter Property="HorizontalAlignment" Value="Left" />
-                        <Setter Property="Background" Value="#804b7c" />
-                        <Setter Property="BorderBrush" Value="Purple" />
-                        <Setter Property="Foreground" Value="LightGray" />
-
-                        <Setter Property="Template">
-                           <Setter.Value>
-                              <ControlTemplate TargetType="{x:Type Button}">
-                                 <Border Padding="{TemplateBinding Padding}"
-                                         Background="{TemplateBinding Background}"
-                                         BorderBrush="{TemplateBinding BorderBrush}"
-                                         BorderThickness="{TemplateBinding BorderThickness}">
-                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                 </Border>
-                              </ControlTemplate>
-                           </Setter.Value>
-                        </Setter>
-
-                        <Style.Triggers>
-                           <Trigger Property="IsMouseOver" Value="True">
-                              <Setter Property="Background" Value="#733f6f" />
-                           </Trigger>
-                        </Style.Triggers>
-                     </Style>
-                  </Button.Style>
-               </Button>
+               <TextBlock Margin="5,0,5,0" Text="Content Image and Text" />
             </StackPanel>
-         </Grid>
-      </ScrollViewer>
+         </Button>
+
+         <Button Content="Button Hand Cursor" Cursor="Hand" />
+
+         <Button Content="{Binding ButtonText}" />
+
+         <Button Command="{Binding Command}" Content="Button With Command" />
+
+         <Button Command="{Binding CommandWithParameter}"
+                 CommandParameter="something"
+                 Content="Button With Command and Parameter" />
+
+         <Button Content="Button With Colors">
+            <Button.Style>
+               <Style TargetType="Button">
+                  <Setter Property="OverridesDefaultStyle" Value="False" />
+                  <Setter Property="Margin" Value="0,10,0,0" />
+                  <Setter Property="Padding" Value="5" />
+                  <Setter Property="HorizontalAlignment" Value="Left" />
+                  <Setter Property="Background" Value="#804b7c" />
+                  <Setter Property="BorderBrush" Value="Purple" />
+                  <Setter Property="Foreground" Value="LightGray" />
+
+                  <Setter Property="Template">
+                     <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                           <Border Padding="{TemplateBinding Padding}"
+                                   Background="{TemplateBinding Background}"
+                                   BorderBrush="{TemplateBinding BorderBrush}"
+                                   BorderThickness="{TemplateBinding BorderThickness}">
+                              <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                           </Border>
+                        </ControlTemplate>
+                     </Setter.Value>
+                  </Setter>
+
+                  <Style.Triggers>
+                     <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="#733f6f" />
+                     </Trigger>
+                  </Style.Triggers>
+               </Style>
+            </Button.Style>
+         </Button>
+      </StackPanel>
    </DataTemplate>
 </ResourceDictionary>

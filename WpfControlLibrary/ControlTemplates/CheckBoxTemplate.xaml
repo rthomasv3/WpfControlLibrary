@@ -2,56 +2,36 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:cvm="clr-namespace:CodeCompendium.WpfControlLibrary.ControlViewModels">
    <DataTemplate DataType="{x:Type cvm:CheckBoxViewModel}">
-      <ScrollViewer Padding="5"
-                    HorizontalScrollBarVisibility="Auto"
-                    VerticalScrollBarVisibility="Auto">
-         <Grid>
-            <Grid.RowDefinitions>
-               <RowDefinition Height="Auto" />
-               <RowDefinition Height="Auto" />
-               <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
+      <StackPanel>
+         <StackPanel.Resources>
+            <Style TargetType="{x:Type CheckBox}">
+               <Setter Property="Margin" Value="0,10,0,0" />
+               <Setter Property="HorizontalAlignment" Value="Left" />
+            </Style>
+         </StackPanel.Resources>
 
-            <TextBlock Grid.Row="0"
-                       Style="{StaticResource _titleTextBlock}"
-                       Text="{Binding Title}" />
+         <CheckBox Content="Basic CheckBox" />
 
-            <TextBlock Grid.Row="1"
-                       Style="{StaticResource _subtitleTextBlock}"
-                       Text="{Binding Subtitle}" />
+         <CheckBox VerticalContentAlignment="Center"
+                   Content="CheckBox With Text Styling"
+                   Cursor="Hand"
+                   FontSize="10"
+                   FontWeight="DemiBold"
+                   Foreground="DarkSlateBlue" />
 
-            <StackPanel Grid.Row="2">
-               <StackPanel.Resources>
-                  <Style TargetType="{x:Type CheckBox}">
-                     <Setter Property="Margin" Value="0,10,0,0" />
-                     <Setter Property="HorizontalAlignment" Value="Left" />
-                  </Style>
-               </StackPanel.Resources>
+         <CheckBox>
+            <StackPanel Orientation="Horizontal">
+               <TextBlock Margin="5,0,5,0" Text="Content Image and Text" />
 
-               <CheckBox Content="Basic CheckBox" />
-
-               <CheckBox VerticalContentAlignment="Center"
-                         Content="CheckBox With Text Styling"
-                         Cursor="Hand"
-                         FontSize="10"
-                         FontWeight="DemiBold"
-                         Foreground="DarkSlateBlue" />
-
-               <CheckBox>
-                  <StackPanel Orientation="Horizontal">
-                     <TextBlock Margin="5,0,5,0" Text="Content Image and Text" />
-
-                     <Image Width="16" Source="{StaticResource _logoSmallImage}" />
-                  </StackPanel>
-               </CheckBox>
-
-               <CheckBox Content="{Binding CheckBoxText}" IsChecked="{Binding IsChecked}" />
-
-               <CheckBox Content="Indeterminate Check Binding"
-                         IsChecked="{Binding IndeterminateChecked}"
-                         IsThreeState="True" />
+               <Image Width="16" Source="{StaticResource _logoSmallImage}" />
             </StackPanel>
-         </Grid>
-      </ScrollViewer>
+         </CheckBox>
+
+         <CheckBox Content="{Binding CheckBoxText}" IsChecked="{Binding IsChecked}" />
+
+         <CheckBox Content="Indeterminate Check Binding"
+                   IsChecked="{Binding IndeterminateChecked}"
+                   IsThreeState="True" />
+      </StackPanel>
    </DataTemplate>
 </ResourceDictionary>
