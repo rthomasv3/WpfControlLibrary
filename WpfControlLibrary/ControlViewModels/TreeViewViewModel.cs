@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using WpfControlLibrary.Models;
+using CodeCompendium.WpfControlLibrary.Models;
 
-namespace WpfControlLibrary.ControlViewModels
+namespace CodeCompendium.WpfControlLibrary.ControlViewModels
 {
    /// <summary>
    /// View model for the tree view control template.

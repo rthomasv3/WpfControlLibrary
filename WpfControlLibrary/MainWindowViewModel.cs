@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using WpfControlLibrary.ControlViewModels;
+using CodeCompendium.WpfControlLibrary.ControlViewModels;
 
-namespace WpfControlLibrary
+namespace CodeCompendium.WpfControlLibrary
 {
    /// <summary>
    /// View model for the main window view.

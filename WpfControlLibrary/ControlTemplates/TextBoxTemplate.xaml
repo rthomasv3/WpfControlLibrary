@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:cvm="clr-namespace:WpfControlLibrary.ControlViewModels">
+                    xmlns:cvm="clr-namespace:CodeCompendium.WpfControlLibrary.ControlViewModels">
    <DataTemplate DataType="{x:Type cvm:TextBoxViewModel}">
       <DataTemplate.Resources>
          <Style x:Key="_placeholderTextBoxStyle"

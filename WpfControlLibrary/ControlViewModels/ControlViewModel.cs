@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WpfControlLibrary.ControlViewModels
+namespace CodeCompendium.WpfControlLibrary.ControlViewModels
 {
    /// <summary>
    /// Base view model for all control templates.

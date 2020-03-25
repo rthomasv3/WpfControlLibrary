@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace WpfControlLibrary.Models
+namespace CodeCompendium.WpfControlLibrary.Models
 {
    /// <summary>
    /// Class used to represent a parent in a tree.

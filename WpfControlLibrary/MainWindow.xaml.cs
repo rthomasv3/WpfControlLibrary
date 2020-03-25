@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace WpfControlLibrary
+namespace CodeCompendium.WpfControlLibrary
 {
    /// <summary>
    /// Interaction logic for MainWindow.xaml

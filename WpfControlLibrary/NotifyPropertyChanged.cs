@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace WpfControlLibrary
+namespace CodeCompendium.WpfControlLibrary
 {
    /// <summary>
    /// Class used to provide set methods with property change events.

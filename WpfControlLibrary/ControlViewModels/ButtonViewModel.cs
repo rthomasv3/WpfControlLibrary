@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Input;
 
-namespace WpfControlLibrary.ControlViewModels
+namespace CodeCompendium.WpfControlLibrary.ControlViewModels
 {
    /// <summary>
    /// View model for the button control template.

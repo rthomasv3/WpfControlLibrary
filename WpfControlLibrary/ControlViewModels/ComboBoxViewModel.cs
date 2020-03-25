@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace WpfControlLibrary.ControlViewModels
+namespace CodeCompendium.WpfControlLibrary.ControlViewModels
 {
    /// <summary>
    /// View model for the combo box control template.

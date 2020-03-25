@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace WpfControlLibrary
+namespace CodeCompendium.WpfControlLibrary
 {
    /// <summary>
    /// Class used to create view model commands.

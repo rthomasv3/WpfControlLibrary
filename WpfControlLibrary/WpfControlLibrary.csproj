@@ -5,6 +5,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
     <ApplicationIcon>Resources\code-compendium-icon.ico</ApplicationIcon>
+    <AssemblyName>CodeCompendium.WpfControlLibrary</AssemblyName>
+    <RootNamespace>CodeCompendium.WpfControlLibrary</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

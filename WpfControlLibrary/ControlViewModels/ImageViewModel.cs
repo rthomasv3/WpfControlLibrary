@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WpfControlLibrary.ControlViewModels
+namespace CodeCompendium.WpfControlLibrary.ControlViewModels
 {
    /// <summary>
    /// View model for the image view control template.

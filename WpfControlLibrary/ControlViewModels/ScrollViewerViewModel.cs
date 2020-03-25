@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace WpfControlLibrary.ControlViewModels
+namespace CodeCompendium.WpfControlLibrary.ControlViewModels
 {
    /// <summary>
    /// View model for the scroll viewer control template.

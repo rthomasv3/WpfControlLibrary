@@ -1,4 +1,4 @@
-﻿namespace WpfControlLibrary.Models
+﻿namespace CodeCompendium.WpfControlLibrary.Models
 {
    /// <summary>
    /// Class used to represent a user.

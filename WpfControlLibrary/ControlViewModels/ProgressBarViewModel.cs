@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using System.Windows.Input;
 
-namespace WpfControlLibrary.ControlViewModels
+namespace CodeCompendium.WpfControlLibrary.ControlViewModels
 {
    /// <summary>
    /// View model for the progress bar control template.

@@ -1,4 +1,4 @@
-﻿namespace WpfControlLibrary.ControlViewModels
+﻿namespace CodeCompendium.WpfControlLibrary.ControlViewModels
 {
    /// <summary>
    /// View model for the group box control template.
