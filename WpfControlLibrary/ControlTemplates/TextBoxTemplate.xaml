@@ -24,7 +24,7 @@
                                           <Border Name="Border"
                                                   Padding="2"
                                                   Background="Transparent"
-                                                  BorderBrush="LightGray"
+                                                  BorderBrush="DarkGray"
                                                   BorderThickness="1">
                                              <ScrollViewer x:Name="PART_ContentHost" Margin="0" />
                                           </Border>
