@@ -4,17 +4,13 @@
    <DataTemplate DataType="{x:Type cvm:StackPanelViewModel}">
       <StackPanel>
          <StackPanel.Resources>
-            <Style TargetType="{x:Type StackPanel}">
-               <Setter Property="Margin" Value="0,10,0,0" />
-            </Style>
-
             <Style TargetType="{x:Type TextBlock}">
                <Setter Property="Margin" Value="0,15,0,0" />
             </Style>
          </StackPanel.Resources>
 
          <TextBlock Text="Stack panel with buttons stacked vertically." />
-         <StackPanel>
+         <StackPanel Margin="0,10,0,0">
             <Button Width="75"
                     Margin="0,0,0,5"
                     HorizontalAlignment="Left"
@@ -31,7 +27,7 @@
          </StackPanel>
 
          <TextBlock Text="Stack panel with buttons stacked horizontally." />
-         <StackPanel Orientation="Horizontal">
+         <StackPanel Margin="0,10,0,0" Orientation="Horizontal">
             <Button Width="75"
                     Margin="0,0,5,0"
                     Content="Button 1" />
